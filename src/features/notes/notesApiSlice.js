@@ -39,7 +39,7 @@ export const selectNotesResult = notesApiSlice.endpoints.getNotes.select()
 
 // creates memoized selector
 
-const selectNotesData = createSelector(selectNotesData, notesResult => notesResult.data)
+const selectNotesData = createSelector(selectNotesResult, notesResult => notesResult.data)
 
 // getselectors creates these selectors that we rename them with aliases during destructuring
 

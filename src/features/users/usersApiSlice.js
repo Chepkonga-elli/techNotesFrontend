@@ -39,7 +39,7 @@ export const selectUsersResult = usersApiSlice.endpoints.getUsers.select()
 
 // creates memoized selector
 
-const selectUsersData = createSelector(selectUsersData, usersResult => usersResult.data)
+const selectUsersData = createSelector(selectUsersResult, usersResult => usersResult.data)
 
 // getselectors creates these selectors that we rename them with aliases during destructuring
 
