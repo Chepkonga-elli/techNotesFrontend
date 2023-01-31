@@ -33,3 +33,18 @@ export const usersApiSlice = apiSlice.injectEndpoints({
 })
 
 export const { useGetUsersQuery, } = usersApiSlice
+
+// returns the query result object
+export const selectUsersResult = usersApiSlice.endpoints.getUsers.select()
+
+// creates memoized selector
+
+const selectUsersData = createSelector(selectUsersData, usersResult => usersResult.data)
+
+// getselectors creates these selectors that we rename them with aliases during destructuring
+
+export const {
+    setAll: selectAllUsers,
+    selectById: selectUserById,
+    selectIds: selectUserIds
+} = usersAdapter.getSelectors(state => selectUsersData(state) ?? initialState )
